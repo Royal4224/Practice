@@ -912,3 +912,99 @@ https://github.com/quanewang/public/blob/master/kochsnowflake.png
 def koch(length=1, depth=0):
     path
 ```
+
+## HackerRank
+
+### Alexa
+Amazon's Alexa team is working on optimizing the customer experience for scenarios where customers ask generic questions. One example of a generic question is "What are good vegetarian restaurants nearby?"  In this example, Alexa would then search for a list of vegetarian restaurants in the city and select the nearest X vegetarian restaurants relative to the customer's location. Given an array representing the locations of N vegetarian restaurants in the city, implement an algorithm to find the nearest X vegetarian restaurants to the customer's location.
+```
+Input
+The input to the function/method consists of two arguments:
+allLocations, a list of elements where each element consists of a pair of integers representing the x and y coordinates of the vegetarian restaurant in the city;
+numRestaurants, an integer representing the number of nearby vegetarian restaurants that would be returned to the customer (X).
+
+Output
+Return a list of elements where each element of the list represents the x and y integer coordinates of the nearest recommended vegetarian restaurant relative to customer’s location. If there is a tie, return any of the locations as long as you satisfy retuning exactly X nearby vegetarian restaurants. If no location is possible, return a list with an empty location - not just an empty list.
+
+Constraints
+numRestaurants ≤ size(allLocations)
+
+Note
+The customer begins at the location [0, 0].
+The distance from the customer's current location to a recommended vegetarian restaurant location (x, y) is the square root of x2 + y2.
+If there are ties then return any of the locations as long as you satisfy returning exactly X nearby vegetarian restaurants.
+The returned output can be in any order.
+
+Example
+Input:
+allLocations = [[1, 2], [3, 4], [1, -1]]
+numRestaurants = 2
+
+Output:
+[[1, -1], [1, 2]]
+
+Explanation:
+The distance of the customer's current location from location [1, 2] is square root(5) = 2.236
+The distance of the customer's current location from location [3, 4] is square root(25) = 5
+The distance of the customer's current location from location [1, -1] is square root(2) = 1.414
+The required number of vegetarian restaurants is 2, hence the output is [1, -1] and [1, 2].
+```
+
+### Economy Mart
+Economy Mart is a very popular e-commerce platform because they display the cheapest items first. Economy Mart has decided to migrate its database to Amazon's cloud platform. The product listings in the old database are being migrated into the Amazon database. Customers that go onto Amazon.com will be viewing items from the new database.
+
+```
+Economy Mart has an unusual way of displaying items,
+
+If a customer views the first item, they will be shown the cheapest item in the database
+If a customer is currently viewing the kth cheapest item, viewing the next item will display the (k+1)th cheapest item.
+If multiple items have the same price, they are ordered alphabetically ascending.
+ 
+There are 2 types of entries:
+
+The first element in the row is “INSERT” followed by the name of the item (String) and its price (String denoting an Integer). This describes an item being added to the database.
+The first element in the row is the word “VIEW”. This is when the customer views an item. The other 2 elements in these rows contain "-" that can be ignored. It is guaranteed that at least one item is added to the database when a customer views an item.
+                                                    Table of entries
+
+ 	Parameter 1	Parameter 2	Parameter 3
+Entry 1	“INSERT”	itemName	price
+Entry 2	“VIEW”	"-" (without quotes)	"-" (without quotes)
+ 
+Note: The price of each item is in string format so you may need to convert it to an integer before using it.
+
+While the database is being transferred, an unknowing customer logs onto the website and browses some of Economy Mart's items. Given a server log in chronological order, determine which items were shown to the customer.
+
+Example
+
+entries = [['INSERT', 'milk', '4'], ['INSERT', 'coffee', '3'], ['VIEW', '-', '-'], ['INSERT', 'pizza', '5'], ['INSERT', 'gum', '1'], ['VIEW', '-', '-']]
+
+Let's consider the following entries in the database:
+
+INSERT milk 4
+INSERT coffee 3
+VIEW - -
+INSERT pizza 5
+INSERT gum 1
+VIEW - -
+ 
+In this case, milk and coffee are added to the database at costs of 4 and 3, respectively. When the customer logs onto the site, the cheapest item in the database is shown: coffee.
+
+While the customer is browsing, pizza and gum are added to the database. Pizza is worth 5 and gum is worth 1. When the customer views the next cheapest item, the items in the database in sorted order are gum (1), coffee (3), milk (4), and pizza (5). Since the customer is viewing for the second time, the second cheapest item, coffee, will be shown again.
+
+Return ['coffee', 'coffee'].
+
+Function Description
+Complete the function getItems in the editor below.
+
+getItems has the following parameters:
+    string entries[n][3]: each row in the matrix represents an individual log entry
+Returns
+    string[]: answers to each of the "VIEW" queries
+Constraints
+1 ≤ n ≤ 105
+1 ≤ | itemName | ≤ 10 (The name of each item will be 1 to 10 characters long)
+Item names will only consist of lowercase English letters.
+All itemName strings are distinct 
+1 ≤ price ≤ 109
+k ≤ length of the database (That is, there will always be at least k items in the database when the customer is viewing for the kth time)
+```
